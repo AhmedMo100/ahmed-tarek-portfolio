@@ -1,0 +1,343 @@
+{
+    "RootLayout": {
+        "title": "Ahmed Tarek | Frontend & Full-Stack Engineer",
+        "description": "Professional software engineer portfolio specializing in React, Next.js, TypeScript, and clean, scalable monorepo architectures."
+    },
+    "Navigation": {
+        "home": "Home",
+        "about": "About Me",
+        "projects": "Projects",
+        "contact": "Contact",
+        "cv": "Download CV",
+        "viewAllProjects": "View All Projects",
+        "projectsDescription": "Explore my latest projects, experiments, and case studies."
+    },
+    "ProjectsDropdown": {
+        "show-more": "Explore More"
+    },
+    "Hero": {
+        "badge": "Frontend & Full-Stack Engineer",
+        "greeting": "Hi, I'm Ahmed Tarek",
+        "description": "I specialize in building high-performance web applications with React, Next.js, and TypeScript. I combine responsive, interactive interfaces with robust and scalable backend architectures to turn complex engineering challenges into clean, reliable digital experiences.",
+        "ctaPrimary": "Explore My Projects",
+        "ctaSecondary": "Download CV",
+        "craftingDigitalExperiences": "CRAFTING DIGITAL EXPERIENCES"
+    },
+    "TechStack": {
+        "title": "Technical Skills",
+        "subtitle": "A focused overview of the frameworks, languages, and tools I use to build reliable, production-ready applications.",
+        "categories": {
+            "FRONTEND": "Frontend Architecture",
+            "BACKEND": "Backend & Cloud",
+            "TOOLS": "Development & DevOps Tools"
+        },
+        "cta": "Explore Full Portfolio"
+    },
+    "ProjectWorkspace": {
+        "sectionTitle": "Project Workspace",
+        "sectionSubtitle": "Explore production-ready applications through an interactive workspace inspired by modern development environments.",
+        "workspaceExplorer": "Workspace Explorer",
+        "internalDependencies": "Internal Dependencies",
+        "engineMetrics": "Technology Stack",
+        "noInternalDeps": "No shared workspace packages",
+        "actions": {
+            "liveDemo": "Live Preview",
+            "sourceCode": "Source Code",
+            "browseProjects": "Browse All Projects"
+        },
+        "viewProject": "View Project Details"
+    },
+    "WorkspaceCta": {
+        "title": "Let's turn your project idea into reality",
+        "subtitle": "Looking to build a fast, reliable, and custom web platform for your business? Let's start a direct conversation about your idea and requirements.",
+        "windowTitle": "New Project Workspace",
+        "terminalPlaceholder": "Click the button below to initialize a communication channel...",
+        "terminalBtn": "Initialize Communication",
+        "mailBtn": "Send an Email",
+        "whatsappBtn": "Chat on WhatsApp",
+        "contactPageBtn": "Open Contact Page",
+        "status": {
+            "idle": "Status: Ready to initialize",
+            "ready": "Status: Communication channels are open"
+        },
+        "bento": {
+            "security": "Secure Architecture",
+            "securityDesc": "Development built around modern security practices and reliable engineering standards.",
+            "speed": "High Performance",
+            "speedDesc": "Using modern web technologies to deliver fast and responsive user experiences."
+        },
+        "log": {
+            "step1": "⚡ Setting up a secure communication environment for your project...",
+            "step2": "📩 Direct communication channels successfully initialized.",
+            "step3": "✨ Connection ready! Choose your preferred channel below to get started."
+        }
+    },
+    "AboutHero": {
+        "title": "Ahmed Tarek.. Skills & Experience with a Practical Approach",
+        "description": "This is where I share my experience, technical toolkit, and approach to web development. It is a closer look at how I build digital products and turn ideas into practical solutions.",
+        "cv": "Download CV",
+        "contact": "Get In Touch"
+    },
+    "EngineeringStandards": {
+        "title": "My Engineering Standards & Philosophy"
+    },
+    "Journey": {
+        "title": "My Programming Journey",
+        "subtitle": "Key milestones that have shaped my professional path"
+    },
+    "Experience": {
+        "title": "Professional Experience",
+        "subtitle": "Companies and organizations I have had the opportunity to work with"
+    },
+    "Services": {
+        "title": "Services I Provide",
+        "subtitle": "Practical technical solutions built around your project goals"
+    },
+    "ProjectsPage": {
+        "title": "Explore My Projects",
+        "subtitle": "A showcase of my recent technical work, modern web applications, and open-source contributions built with current technologies.",
+        "commands": {
+            "checkout": "~ git checkout production"
+        },
+        "filters": {
+            "all": "All"
+        }
+    },
+    "AboutPage": {
+        "hero": {
+            "eyebrow": "ABOUT ME",
+            "title": "Building digital experiences with purpose.",
+            "description": "I'm a Frontend & Full-Stack Developer focused on building modern, scalable, and thoughtfully engineered digital products.",
+            "cta": "Let's Work Together",
+            "scroll": "Explore More"
+        },
+        "whoIAm": {
+            "eyebrow": "WHO I AM",
+            "title": "More than just writing code.",
+            "description": "I'm a developer who cares about how things work, how they feel, and how they can evolve. I enjoy turning ideas and complex requirements into clean, intuitive, and maintainable digital experiences.",
+            "highlights": {
+                "problemSolver": {
+                    "title": "Problem Solver",
+                    "description": "I break complex problems down into clear, practical, and scalable solutions."
+                },
+                "productMinded": {
+                    "title": "Product Mindset",
+                    "description": "I think beyond implementation and focus on the experience and value behind every feature."
+                },
+                "continuousLearner": {
+                    "title": "Continuous Learning",
+                    "description": "I continuously explore new technologies and better ways to build reliable and maintainable products."
+                }
+            }
+        },
+        "experienceJourney": {
+            "eyebrow": "EXPERIENCE & JOURNEY",
+            "title": "The path that shaped how I build.",
+            "description": "Every experience, project, and challenge has contributed to the way I approach software development today.",
+            "experience": {
+                "title": "Professional Experience"
+            },
+            "journey": {
+                "title": "My Journey"
+            },
+            "current": "Present"
+        },
+        "technicalPhilosophy": {
+            "eyebrow": "TECHNICAL PHILOSOPHY",
+            "title": "How I approach engineering.",
+            "description": "Good software is not only about making things work. It is about building systems that remain understandable, reliable, performant, and ready to evolve.",
+            "principles": "Engineering Principles"
+        },
+        "beyondCode": {
+            "eyebrow": "BEYOND CODE",
+            "title": "What drives me beyond the keyboard.",
+            "description": "Technology is only one part of the journey. I value curiosity, communication, continuous learning, and personal growth because they shape both better developers and better teammates.",
+            "items": {
+                "learning": {
+                    "title": "Continuous Learning",
+                    "description": "I enjoy learning new concepts, tools, and approaches that help me become a better developer."
+                },
+                "curiosity": {
+                    "title": "Curiosity",
+                    "description": "I like understanding how things work and exploring ideas beyond what I already know."
+                },
+                "communication": {
+                    "title": "Clear Communication",
+                    "description": "Great products are built through clear communication, shared understanding, and genuine collaboration."
+                },
+                "growth": {
+                    "title": "Personal Growth",
+                    "description": "I believe consistent improvement, both technically and personally, creates meaningful results over time."
+                }
+            }
+        },
+        "cta": {
+            "eyebrow": "LET'S BUILD",
+            "title": "Have an idea in mind?",
+            "description": "Whether you're building a new product, improving an existing experience, or simply want to discuss an idea, I'd be happy to hear from you.",
+            "button": "Get In Touch",
+            "secondaryButton": "View Projects"
+        }
+    },
+    "ContactPage": {
+        "hero": {
+            "heading": "Let's Build Something Great",
+            "subheading": "Have a project in mind or want to talk about software engineering? My inbox is always open.",
+            "cta": "Learn More About Me"
+        },
+        "form": {
+            "heading": "Get In Touch",
+            "subheading": "Send me a message and I'll get back to you as soon as possible.",
+            "labelName": "Your Name",
+            "labelEmail": "Your Email",
+            "labelMessage": "Message",
+            "placeholderName": "John Doe",
+            "placeholderEmail": "john@example.com",
+            "placeholderMessage": "Tell me about your project...",
+            "submit": "Send Message",
+            "sending": "Sending...",
+            "success": "Message sent successfully!",
+            "error": "Something went wrong. Please try again.",
+            "form_header": "Initialize Connection",
+            "form_subheader": "Fill in the required fields to establish a secure message transmission."
+        },
+        "social": {
+            "title": "Connect With Me",
+            "whatsapp": "WhatsApp",
+            "email": "Email",
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "linkedin": "LinkedIn",
+            "github": "GitHub"
+        },
+        "footer": {
+            "title": "What Happens Next?",
+            "description": "I'll review your message and get back to you within 48 hours. In the meantime, feel free to explore my latest work.",
+            "cta": "Browse Projects"
+        }
+    },
+    "Footer": {
+        "rights": "All rights reserved.",
+        "builtWith": "Built with"
+    },
+    "projects": {
+        "details": {
+            "eyebrow": "Project Details",
+            "breadcrumb": "Projects",
+            "links": {
+                "liveDemo": "View Project",
+                "frontend": "Frontend Code"
+            },
+            "interaction": {
+                "like": "Like this project"
+            },
+            "overview": {
+                "eyebrow": "Overview",
+                "title": "Building the Experience",
+                "aboutTitle": "About the Project",
+                "categories": "Categories",
+                "technologies": "Technologies Used",
+                "sharedPackages": "Shared Packages",
+                "workspace": "Workspace"
+            },
+            "story": {
+                "eyebrow": "Behind the Project",
+                "title": "Project Story",
+                "description": "Every project starts with an idea and evolves through challenges, decisions, and execution.",
+                "storyLabel": "Project Story",
+                "galleryTitle": "A Look Inside",
+                "galleryDescription": "Explore some of the project's interfaces and visual details."
+            },
+            "gallery": {
+                "eyebrow": "Visual Showcase",
+                "title": "Inside the Project",
+                "description": "Explore the interface, features, and details through a collection of project visuals.",
+                "projectGallery": "Project Gallery",
+                "image": "Image",
+                "images": "Images",
+                "viewImage": "View Image",
+                "close": "Close",
+                "previous": "Previous",
+                "next": "Next",
+                "noImages": "No additional project images are available yet."
+            },
+            "technology": {
+                "eyebrow": "Technology & Architecture",
+                "title": "Built With Modern Tools",
+                "description": "The technologies, tools, and architecture used to build and structure this project.",
+                "technologies": "Technologies",
+                "sharedPackages": "Shared Packages",
+                "architecture": "Project Architecture",
+                "workspace": "Workspace Structure",
+                "frontend": "Frontend",
+                "backend": "Backend",
+                "tools": "Tools & Libraries",
+                "noSharedPackages": "No shared packages are used in this project."
+            },
+            "feedback": {
+                "eyebrow": "Community Feedback",
+                "title": "What do you think?",
+                "description": "Share your thoughts about this project and let me know what you think.",
+                "like": {
+                    "title": "Did you like the project?",
+                    "description": "Leave a like if you found the project useful or impressive.",
+                    "likeText": "Like this project",
+                    "likedText": "You liked this project",
+                    "oneLike": "like",
+                    "likes": "likes",
+                    "likedStatus": "Liked",
+                    "likeStatus": "Like",
+                    "likeAria": "Like this project",
+                    "unlikeAria": "Unlike this project"
+                },
+                "comments": {
+                    "eyebrow": "Discussion",
+                    "title": "Comments",
+                    "description": "Share your thoughts, feedback, or questions about the project.",
+                    "formTitle": "Leave a comment",
+                    "formDescription": "Share your thoughts about this project with the community.",
+                    "nameLabel": "Your name",
+                    "namePlaceholder": "Enter your name",
+                    "commentLabel": "Your comment",
+                    "commentPlaceholder": "What do you think about this project?",
+                    "respectful": "Be respectful",
+                    "submit": "Submit feedback",
+                    "submitting": "Submitting...",
+                    "success": "Your comment has been submitted for review.",
+                    "error": "Something went wrong. Please try again.",
+                    "communityTitle": "Community feedback",
+                    "commentCount": "{count} comments",
+                    "oneComment": "comment",
+                    "approved": "Approved comments",
+                    "projectVisitor": "Project visitor",
+                    "noComments": "No comments yet",
+                    "beFirst": "Be the first person to share your thoughts about this project."
+                }
+            },
+            "related": {
+                "eyebrow": "Explore More",
+                "title": "Related Projects",
+                "description": "Discover more projects built around similar technologies, ideas, and solutions.",
+                "viewAll": "View All Projects",
+                "exploreProject": "Explore Project",
+                "cta": {
+                    "title": "Have a project in mind?",
+                    "description": "I'm always interested in discussing new ideas, products, and opportunities. Let's build something meaningful together.",
+                    "button": "Start a Conversation"
+                }
+            },
+            "common": {
+                "viewProject": "View Project",
+                "viewLive": "View Live",
+                "sourceCode": "Source Code",
+                "frontend": "Frontend",
+                "backend": "Backend",
+                "technologies": "Technologies",
+                "categories": "Categories",
+                "project": "Project",
+                "learnMore": "Learn More",
+                "loading": "Loading..."
+            }
+        }
+    }
+}

@@ -1,0 +1,198 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// Dynamic profile layout storing primary developer meta-data and updatable resume links.
+model Profile {
+  id          String   @id @default(uuid())
+  bioEn       String
+  bioAr       String
+  aboutTextEn String
+  aboutTextAr String
+  cvUrl       String
+  cvDownloads Int      @default(0)
+  updatedAt   DateTime @updatedAt
+}
+
+/// Categorized tech-stack registry mapping individual skills to specific development layers.
+model Skill {
+  id            String        @id @default(uuid())
+  nameEn        String
+  nameAr        String
+  descriptionEn String
+  descriptionAr String
+  category      SkillCategory
+  icon          String        // Standardized visual identifier referencing Lucide icon mappings.
+}
+
+enum SkillCategory {
+  FRONTEND
+  BACKEND
+  TOOLS
+}
+
+/// Verified industry track-record indexing previous developer tenures.
+model Experience {
+  id           String    @id @default(uuid())
+  companyEn    String
+  companyAr    String
+  roleEn       String
+  roleAr       String
+  durationEn   String
+  durationAr   String
+  descriptionEn String
+  descriptionAr String
+  startDate    DateTime
+  endDate      DateTime?
+}
+
+/// Standalone architectural or freelance solutions provided directly to prospective clients.
+model Service {
+  id           String @id @default(uuid())
+  titleEn      String
+  titleAr      String
+  descriptionEn String
+  descriptionAr String
+  icon         String
+}
+
+/// High-level engineering principles (Engineering Standards section).
+model QualityStandard {
+  id            String @id @default(uuid())
+  titleEn       String
+  titleAr       String
+  descriptionEn String
+  descriptionAr String
+  icon          String 
+}
+
+/// Personal milestones, journey, or process steps for the About page.
+model Milestone {
+  id            String  @id @default(uuid())
+  titleEn       String
+  titleAr       String
+  descriptionEn String
+  descriptionAr String
+  year          String?
+  order         Int     @default(0)
+}
+
+model Project {
+  id               String         @id @default(uuid())
+
+  titleEn          String
+  slugEn           String         @unique
+  descriptionEn    String
+  contentEn        String
+
+  titleAr          String
+  slugAr           String         @unique
+  descriptionAr    String
+  contentAr        String
+
+  workspacePath    String
+  coverImage       String
+  liveUrl          String?
+  githubFront      String?
+  githubBack       String?
+  technologies     String[]
+  sharedPackages   String[]
+
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  images           ProjectImage[]
+  categories       Category[]
+  comments         Comment[]
+  likes            ProjectLike[]
+}
+
+
+model ProjectLike {
+  id        String   @id @default(uuid())
+  projectId String
+  visitorId String
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, visitorId])
+  @@index([projectId])
+  @@index([visitorId])
+}
+
+
+model Comment {
+  id         String        @id @default(uuid())
+  authorName String
+  content    String
+  status     CommentStatus @default(PENDING)
+
+  visitorId  String
+  projectId  String
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@index([projectId])
+  @@index([status])
+  @@index([visitorId])
+}
+
+
+enum CommentStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+/// Granular secondary gallery interface feeding media carousels or feature captures per project.
+model ProjectImage {
+  id        String   @id @default(uuid())
+  url       String
+  altText   String?
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+/// Project categories such as Frontend, Backend, Full-Stack, SaaS and Featured.
+model Category {
+  id        String    @id @default(uuid())
+
+  nameEn    String    @unique
+  nameAr    String    @unique
+  slug      String    @unique
+
+  projects  Project[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+/// Secure logging mechanism capturing structured user inquiries straight from the communication UI.
+model Message {
+  id        String        @id @default(uuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  status    MessageStatus @default(UNREAD)
+  createdAt DateTime      @default(now())
+}
+
+enum MessageStatus {
+  UNREAD
+  READ
+  ARCHIVED
+}

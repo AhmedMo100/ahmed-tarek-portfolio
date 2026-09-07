@@ -1,0 +1,121 @@
+/**
+ * @file globals.css
+ * @description Global stylesheet configuration optimized for Tailwind CSS v4.
+ * Establish design system variables for modern Light/Dark themes with purple primary branding.
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ----------------------------------------------------------------------------------
+ * DESIGN SYSTEM CONFIGURATION
+ * ---------------------------------------------------------------------------------- */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+}
+
+/* ----------------------------------------------------------------------------------
+ * LIGHT MODE SPECIFICATIONS
+ * ---------------------------------------------------------------------------------- */
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+
+  --primary: oklch(0.55 0.25 285); /* Deep Purple */
+  --primary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+
+  --accent: oklch(0.94 0.15 285); /* Light Purple Accent */
+  --accent-foreground: oklch(0.205 0 0);
+
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.55 0.25 285);
+  --radius: 0.625rem;
+}
+
+/* ----------------------------------------------------------------------------------
+ * DARK MODE SPECIFICATIONS
+ * ---------------------------------------------------------------------------------- */
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+
+  --primary: oklch(0.70 0.20 285); /* Neon Purple */
+  --primary-foreground: oklch(0.145 0 0);
+
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.70 0.20 285);
+}
+
+/* ----------------------------------------------------------------------------------
+ * BASE UTILITIES & TRANSITIONS
+ * ---------------------------------------------------------------------------------- */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  *, ::before, ::after {
+    border-color: var(--border);
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ----------------------------------------------------------------------------------
+ * THEME INLINE
+ * ---------------------------------------------------------------------------------- */
+@theme inline {
+  --color-ring: var(--ring);
+  --color-border: var(--border);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
