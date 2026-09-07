@@ -20,8 +20,7 @@ export class LikesService {
     static async getLikeState(
         projectId: string,
     ): Promise<boolean> {
-        const visitorId =
-            await getVisitorId();
+        const visitorId = await getVisitorId();
 
         /**
          * A visitor without an identifier
@@ -51,24 +50,20 @@ export class LikesService {
     /**
      * Toggle project like.
      *
-     * The visitor identifier can be provided by a
-     * Server Action. If it is not provided, the
-     * existing visitor cookie is read.
+     * Visitor identification must already exist
+     * before this service is called.
      */
     static async toggleLike(
         projectId: string,
         path?: string,
-        visitorId?: string,
     ): Promise<ToggleLikeResult> {
-        const currentVisitorId =
-            visitorId ??
-            await getVisitorId();
+        const visitorId = await getVisitorId();
 
         /**
-         * A visitor identifier is required
-         * to create or remove a like.
+         * A new visitor must receive an identifier
+         * from a Server Action or Route Handler.
          */
-        if (!currentVisitorId) {
+        if (!visitorId) {
             throw new Error(
                 "Visitor identifier is missing.",
             );
@@ -96,8 +91,7 @@ export class LikesService {
                 where: {
                     projectId_visitorId: {
                         projectId,
-                        visitorId:
-                            currentVisitorId,
+                        visitorId,
                     },
                 },
 
@@ -106,33 +100,21 @@ export class LikesService {
                 },
             });
 
-        /**
-         * Remove the existing like.
-         */
         if (existingLike) {
             await prisma.projectLike.delete({
                 where: {
                     id: existingLike.id,
                 },
             });
-        }
-
-        /**
-         * Create a new like.
-         */
-        else {
+        } else {
             await prisma.projectLike.create({
                 data: {
                     projectId,
-                    visitorId:
-                        currentVisitorId,
+                    visitorId,
                 },
             });
         }
 
-        /**
-         * Retrieve the updated likes count.
-         */
         const likesCount =
             await prisma.projectLike.count({
                 where: {
@@ -140,10 +122,6 @@ export class LikesService {
                 },
             });
 
-        /**
-         * Revalidate the page when a path
-         * is explicitly provided.
-         */
         if (path) {
             revalidatePath(path);
         }

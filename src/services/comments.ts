@@ -41,70 +41,40 @@ export class CommentsService {
         content,
         projectId,
     }: CreateCommentInput) {
-        const cleanAuthorName =
-            authorName.trim();
-
-        const cleanContent =
-            content.trim();
+        const cleanAuthorName = authorName.trim();
+        const cleanContent = content.trim();
 
         if (
             cleanAuthorName.length < 2 ||
             cleanContent.length < 3
         ) {
-            throw new Error(
-                "Invalid comment.",
-            );
+            throw new Error("Invalid comment.");
         }
 
-        const project =
-            await prisma.project.findUnique({
-                where: {
-                    id: projectId,
-                },
-                select: {
-                    id: true,
-                },
-            });
+        const project = await prisma.project.findUnique({
+            where: {
+                id: projectId,
+            },
+            select: {
+                id: true,
+            },
+        });
 
         if (!project) {
-            throw new Error(
-                "Project not found.",
-            );
+            throw new Error("Project not found.");
         }
 
-        const visitorId =
-            await getVisitorId();
+        const visitorId = await getVisitorId();
 
-        /**
-         * A visitor identifier is required
-         * before creating a comment.
-         *
-         * The identifier should be created
-         * inside the Server Action before
-         * calling this service.
-         */
-        if (!visitorId) {
-            throw new Error(
-                "Visitor identifier is missing.",
-            );
-        }
-
-        const comment =
-            await prisma.comment.create({
-                data: {
-                    authorName:
-                        cleanAuthorName,
-
-                    content:
-                        cleanContent,
-
-                    projectId,
-
-                    visitorId,
-
-                    status: "PENDING",
-                },
-            });
+        const comment = await prisma.comment.create({
+            data: {
+                authorName: cleanAuthorName,
+                content: cleanContent,
+                projectId,
+                visitorId,
+                status: "PENDING",
+            },
+        });
 
         revalidatePath("/");
 
