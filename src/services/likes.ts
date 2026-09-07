@@ -5,7 +5,10 @@
  */
 
 import prisma from "@/lib/prisma";
-import { getVisitorId } from "@/lib/visitor";
+import {
+    getVisitorId,
+    getOrCreateVisitorId,
+} from "@/lib/visitor";
 import { revalidatePath } from "next/cache";
 
 export interface ToggleLikeResult {
@@ -20,19 +23,25 @@ export class LikesService {
     static async getLikeState(
         projectId: string,
     ): Promise<boolean> {
-        const visitorId = await getVisitorId();
+        const visitorId =
+            await getVisitorId();
 
-        const like = await prisma.projectLike.findUnique({
-            where: {
-                projectId_visitorId: {
-                    projectId,
-                    visitorId,
+        if (!visitorId) {
+            return false;
+        }
+
+        const like =
+            await prisma.projectLike.findUnique({
+                where: {
+                    projectId_visitorId: {
+                        projectId,
+                        visitorId,
+                    },
                 },
-            },
-            select: {
-                id: true,
-            },
-        });
+                select: {
+                    id: true,
+                },
+            });
 
         return Boolean(like);
     }
@@ -44,19 +53,23 @@ export class LikesService {
         projectId: string,
         path?: string,
     ): Promise<ToggleLikeResult> {
-        const visitorId = await getVisitorId();
+        const visitorId =
+            await getOrCreateVisitorId();
 
-        const project = await prisma.project.findUnique({
-            where: {
-                id: projectId,
-            },
-            select: {
-                id: true,
-            },
-        });
+        const project =
+            await prisma.project.findUnique({
+                where: {
+                    id: projectId,
+                },
+                select: {
+                    id: true,
+                },
+            });
 
         if (!project) {
-            throw new Error("Project not found.");
+            throw new Error(
+                "Project not found.",
+            );
         }
 
         const existingLike =
