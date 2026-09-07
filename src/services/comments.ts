@@ -66,6 +66,12 @@ export class CommentsService {
 
         const visitorId = await getVisitorId();
 
+        if (!visitorId) {
+            throw new Error(
+                "Visitor identifier is missing.",
+            );
+        }
+
         const comment = await prisma.comment.create({
             data: {
                 authorName: cleanAuthorName,
