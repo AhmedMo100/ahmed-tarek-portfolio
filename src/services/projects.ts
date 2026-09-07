@@ -324,33 +324,32 @@ export class ProjectsService {
 
             const visitorId = await getVisitorId();
 
-            const likesPromise =
-                prisma.projectLike.count({
-                    where: {
-                        projectId: project.id,
-                    },
-                });
-
-            const existingLikePromise =
-                visitorId
-                    ? prisma.projectLike.findUnique({
-                        where: {
-                            projectId_visitorId: {
-                                projectId: project.id,
-                                visitorId,
-                            },
-                        },
-
-                        select: {
-                            id: true,
-                        },
-                    })
-                    : Promise.resolve(null);
-
             const [likes, existingLike] =
                 await Promise.all([
-                    likesPromise,
-                    existingLikePromise,
+                    prisma.projectLike.count({
+                        where: {
+                            projectId: project.id,
+                        },
+                    }),
+
+                    // A visitor without a cookie yet (their very first request,
+                    // before the middleware-issued cookie reaches the browser)
+                    // cannot have liked anything previously — skip the lookup
+                    // rather than querying with a null visitorId.
+                    visitorId
+                        ? prisma.projectLike.findUnique({
+                            where: {
+                                projectId_visitorId: {
+                                    projectId: project.id,
+                                    visitorId,
+                                },
+                            },
+
+                            select: {
+                                id: true,
+                            },
+                        })
+                        : Promise.resolve(null),
                 ]);
 
             return this.mapProject(
