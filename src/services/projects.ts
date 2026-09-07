@@ -322,30 +322,29 @@ export class ProjectsService {
                 return null;
             }
 
-            const visitorId =
-                await getVisitorId();
+            const visitorId = await getVisitorId();
 
-            const likes =
-                await prisma.projectLike.count({
-                    where: {
-                        projectId: project.id,
-                    },
-                });
+            const [likes, existingLike] =
+                await Promise.all([
+                    prisma.projectLike.count({
+                        where: {
+                            projectId: project.id,
+                        },
+                    }),
 
-            const existingLike =
-                visitorId
-                    ? await prisma.projectLike.findUnique({
+                    prisma.projectLike.findUnique({
                         where: {
                             projectId_visitorId: {
                                 projectId: project.id,
                                 visitorId,
                             },
                         },
+
                         select: {
                             id: true,
                         },
-                    })
-                    : null;
+                    }),
+                ]);
 
             return this.mapProject(
                 project,
