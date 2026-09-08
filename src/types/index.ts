@@ -45,7 +45,7 @@ export interface ApiResponse<T = unknown> {
  */
 export const Images = {
     hero: {
-        en: "https://res.cloudinary.com/dx1vy3nro/image/upload/v1783793711/me_uujf8w.png",
-        ar: "https://res.cloudinary.com/dx1vy3nro/image/upload/v1783793711/me_uujf8w.png",
+        en: "https://res.cloudinary.com/dx1vy3nro/image/upload/v1788872791/ChatGPT_Image_Sep_8_2026_at_04_05_42_PM_n8wjqt.png",
+        ar: "https://res.cloudinary.com/dx1vy3nro/image/upload/v1788872791/ChatGPT_Image_Sep_8_2026_at_04_05_42_PM_n8wjqt.png",
     }
 };
